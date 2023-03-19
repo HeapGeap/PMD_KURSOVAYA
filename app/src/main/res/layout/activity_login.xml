@@ -8,8 +8,7 @@
     android:orientation="vertical"
     android:background="@drawable/backimage"
     android:padding ="20dp"
-
-    tools:context=".mainFrame.LoginActivity">
+    >
 
     <ImageView
         android:id="@+id/logoImage"
@@ -17,7 +16,8 @@
         android:layout_height="210dp"
         android:layout_marginHorizontal="80dp"
         android:layout_marginVertical="15dp"
-        android:src="@drawable/logoimage"/>
+        android:src="@drawable/logoimage"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,6 +41,7 @@
         >
 
         <EditText
+            android:id="@+id/name_field"
             android:layout_width="match_parent"
             android:layout_height="60sp"
             android:layout_marginTop="10sp"
@@ -53,6 +54,7 @@
             android:paddingEnd="17sp" />
 
         <EditText
+            android:id="@+id/pass_field"
             android:layout_width="match_parent"
             android:layout_height="60sp"
             android:layout_marginTop="10sp"
@@ -63,16 +65,50 @@
             android:inputType="textPassword"
             android:paddingStart="15sp"
             android:paddingEnd="17sp" />
+
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/auth_button"
+            android:layout_width="170sp"
             android:layout_height="60sp"
             android:text="Вход"
             android:background="@drawable/auth_button_cust"
-            android:layout_gravity="center"
+            android:layout_marginTop="20sp"
+
+            />
+
+
+
+        <Button
+            android:id="@+id/reg"
+            android:layout_width="170sp"
+            android:layout_height="60sp"
+            android:text="Регистрация"
+            android:background="@drawable/registration_button_cust"
+            android:layout_gravity="right"
+            android:layout_marginTop="15sp"
+            android:onClick="reg_click"
             />
 
     </LinearLayout>
-    
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5sp"
+        android:gravity="center"
+        android:layout_marginTop="20sp"
+        android:text="  Ещё нет аккаунта? Переходи в раздел регистрации"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20sp"
+        android:text="  Забыли пароль? Тогда тебе сюда "/>
+
+
+
+
 
 
 </LinearLayout>
