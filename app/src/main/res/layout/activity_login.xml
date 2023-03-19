@@ -37,12 +37,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         >
+
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:layout_height="60sp"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/login_icon"
+            android:drawablePadding="15sp"
             android:hint="Введите логин"
+            android:inputType="textPersonName"
+            android:paddingStart="15sp"
+            android:paddingEnd="17sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/password_icon"
+            android:drawablePadding="15sp"
+            android:hint="Введите пароль"
+            android:inputType="textPassword"
+            android:paddingStart="15sp"
+            android:paddingEnd="17sp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"
+            android:text="Вход"
+            android:background="@drawable/auth_button_cust"
+            android:layout_gravity="center"
             />
 
     </LinearLayout>
