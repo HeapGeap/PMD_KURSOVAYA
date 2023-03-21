@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MedicineCenter</string>
+    <string name="cont_text">Контакты</string>
+    <string name="about_text">Про нас</string>
 </resources>
