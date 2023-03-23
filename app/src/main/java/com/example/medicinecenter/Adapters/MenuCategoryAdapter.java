@@ -2,20 +2,25 @@ package com.example.medicinecenter.Adapters;
 
 import android.content.Context;
 import android.icu.util.ULocale;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.medicinecenter.Models.Category;
+import com.example.medicinecenter.R;
 
 import java.util.List;
 
 public class MenuCategoryAdapter extends RecyclerView.Adapter<MenuCategoryAdapter.CategoryViewHolder> {
 
     Context context;
-    List<ULocale.Category> categories;
+    List<Category> categories;
 
-    public MenuCategoryAdapter(Context context, List<ULocale.Category> categories) {
+    public MenuCategoryAdapter(Context context, List<Category> categories) {
         this.context = context;
         this.categories = categories;
     }
@@ -23,12 +28,13 @@ public class MenuCategoryAdapter extends RecyclerView.Adapter<MenuCategoryAdapte
     @NonNull
     @Override
     public MenuCategoryAdapter.CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View categoryItems = LayoutInflater.from(context).inflate(R.layout.categories_object,parent,false);
+        return new CategoryViewHolder(categoryItems);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MenuCategoryAdapter.CategoryViewHolder holder, int position) {
-
+        holder.categoryTitle.setText(categories.get(position).getTitle());
     }
 
     @Override
@@ -37,9 +43,12 @@ public class MenuCategoryAdapter extends RecyclerView.Adapter<MenuCategoryAdapte
     }
 
     public static final class  CategoryViewHolder extends RecyclerView.ViewHolder{
+        TextView categoryTitle;
 
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            categoryTitle = itemView.findViewById(R.id.categoryTitle);
         }
     }
 }

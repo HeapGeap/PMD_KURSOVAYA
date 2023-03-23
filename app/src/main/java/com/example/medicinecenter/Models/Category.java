@@ -1,10 +1,10 @@
 package com.example.medicinecenter.Models;
 
-public class MenuCategories {
+public class Category {
     int id;
     String title;
 
-    public MenuCategories(int id, String title) {
+    public Category(int id, String title) {
         this.id = id;
         this.title = title;
     }
