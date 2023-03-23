@@ -12,8 +12,9 @@ import com.example.medicinecenter.Database.DatabaseManager;
 
 public class DatabaseSave extends AppCompatActivity {
 
-    private DatabaseManager myDbManager;
+    public DatabaseManager myDbManager;
     private EditText edName, edSurname,edWI,edHours;
+    private EditText edName2 , edDate, edDateTime;
     private TextView DbOut;
 
     @Override
@@ -22,10 +23,16 @@ public class DatabaseSave extends AppCompatActivity {
         setContentView(R.layout.activity_database_save);
         myDbManager = new DatabaseManager(this);
 
+
         edName = findViewById(R.id.editTextName);
         edSurname = findViewById(R.id.editTextSurname);
         edWI = findViewById(R.id.editTextWI);
         edHours = findViewById(R.id.editTextHours);
+
+        edName2 = findViewById(R.id.editTextTextPersonName);
+        edDate = findViewById(R.id.editTextTextPersonName2);
+        edDateTime = findViewById(R.id.editTextTextPersonName3);
+
         DbOut = findViewById(R.id.DatabaseOut);
     }
 
@@ -33,24 +40,22 @@ public class DatabaseSave extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         myDbManager.openDb();
-
-
     }
 
-    public void logData(View v){
-
-        for(String name: myDbManager.getDataFromDb()){
-            DbOut.append(name);
-            DbOut.append("\n");
-        }
-    }
 
     public void savingData(View v){
 
         myDbManager.DatabaseInsert(edName.getText().toString(),edSurname.getText().toString(),
                 edWI.getText().toString(),edHours.getText().toString());
 
-        for(String name: myDbManager.getDataFromDb()){
+        myDbManager.DatabaseInsert2(edName2.getText().toString(),edDate.getText().toString(),edDateTime.getText().toString());
+
+        for(String name : myDbManager.getDataFromDb()){
+            DbOut.append(name);
+            DbOut.append("\n");
+        }
+
+        for(String name : myDbManager.getDataFromDb2()){
             DbOut.append(name);
             DbOut.append("\n");
         }

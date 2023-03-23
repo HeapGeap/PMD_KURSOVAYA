@@ -1,5 +1,7 @@
 package com.example.medicinecenter.Adapters;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.icu.util.ULocale;
 import android.view.LayoutInflater;
@@ -10,8 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.medicinecenter.Database.DatabaseManager;
+import com.example.medicinecenter.MainActivity;
 import com.example.medicinecenter.Models.Category;
 import com.example.medicinecenter.R;
+import com.example.medicinecenter.UserProfile;
 
 import java.util.List;
 
@@ -19,6 +24,7 @@ public class MenuCategoryAdapter extends RecyclerView.Adapter<MenuCategoryAdapte
 
     Context context;
     List<Category> categories;
+
 
     public MenuCategoryAdapter(Context context, List<Category> categories) {
         this.context = context;
@@ -33,8 +39,20 @@ public class MenuCategoryAdapter extends RecyclerView.Adapter<MenuCategoryAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MenuCategoryAdapter.CategoryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MenuCategoryAdapter.CategoryViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.categoryTitle.setText(categories.get(position).getTitle());
+
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UserProfile.showById(categories.get(position).getId());
+
+
+
+            }
+        });
     }
 
     @Override
@@ -51,4 +69,6 @@ public class MenuCategoryAdapter extends RecyclerView.Adapter<MenuCategoryAdapte
             categoryTitle = itemView.findViewById(R.id.categoryTitle);
         }
     }
+
+
 }

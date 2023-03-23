@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfile"
-    android:background="@drawable/usersback">
+    android:background="@drawable/usersback"
+    tools:context=".UserProfile">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="65sp"
         android:background="#FFF"
@@ -18,8 +19,8 @@
         <ImageView
             android:id="@+id/UsersLogoTrans"
             android:layout_width="wrap_content"
-            android:onClick="database_work_window"
             android:layout_height="wrap_content"
+            android:onClick="database_work_window"
             android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,6 +31,7 @@
 
         <TextView
             android:id="@+id/textView"
+            android:onClick="AlertDia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/stalinist_one"
@@ -43,13 +45,14 @@
 
         <TextView
             android:id="@+id/textView2"
+            android:onClick="AlertDia2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/about_text"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:fontFamily="@font/stalinist_one"
-            android:textSize="13sp"
+            android:text="@string/about_text"
             android:textColor="#000000"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -76,5 +79,19 @@
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/UsersVision"
+        android:layout_width="0dp"
+        android:layout_height="583sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

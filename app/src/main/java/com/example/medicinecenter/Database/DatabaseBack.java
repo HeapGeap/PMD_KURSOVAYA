@@ -14,11 +14,13 @@ public class DatabaseBack extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(Constants.TIME_TABLE);
+        sqLiteDatabase.execSQL(Constants.DATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         sqLiteDatabase.execSQL(Constants.TIME_DROP);
+        sqLiteDatabase.execSQL(Constants.TABLE2_DROP);
         onCreate(sqLiteDatabase);
     }
 }

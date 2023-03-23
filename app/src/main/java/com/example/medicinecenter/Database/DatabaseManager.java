@@ -31,18 +31,57 @@ public class DatabaseManager {
         cv.put(Constants.WEEK_INTERVAL,w_i);
         cv.put(Constants.ENTRY_TIME,time);
 
-        database.insert(Constants.TIME_TABLE,null, cv);
+        database.insert(Constants.TABLE_NAME,null, cv);
     }
 
+    public void DatabaseInsert2(String name,String date, String date_time){
+        ContentValues cv = new ContentValues();
+
+        cv.put(Constants.NAME,name);
+        cv.put(Constants.DATE,date);
+        cv.put(Constants.DATE_TIME,date_time);
+
+        database.insert(Constants.TABLE2_NAME,null, cv);
+    }
+
+
+
     public List<String> getDataFromDb(){
+
         List<String> tempList = new ArrayList<>();
 
-        Cursor cursor = database.query(Constants.TIME_TABLE,null,null,null,
+        Cursor cursor = database.query(Constants.TABLE_NAME,null,null,null,
                 null,null,null);
 
         while(cursor.moveToNext()){
             @SuppressLint("Range") String data = cursor.getString(cursor.getColumnIndex(Constants.DOCTOR_NAME));
+            @SuppressLint("Range") String data2 = cursor.getString(cursor.getColumnIndex(Constants.DOCTOR_SURNAME));
+            @SuppressLint("Range") String data3 = cursor.getString(cursor.getColumnIndex(Constants.WEEK_INTERVAL));
+            @SuppressLint("Range") String data4 = cursor.getString(cursor.getColumnIndex(Constants.ENTRY_TIME));
             tempList.add(data);
+            tempList.add(data2);
+            tempList.add(data3);
+            tempList.add(data4);
+        }
+        cursor.close();
+        return tempList;
+    }
+
+    public List<String> getDataFromDb2(){
+
+        List<String> tempList = new ArrayList<>();
+
+        Cursor cursor = database.query(Constants.TABLE2_NAME,null,null,null,
+                null,null,null);
+
+        while(cursor.moveToNext()){
+            @SuppressLint("Range") String data = cursor.getString(cursor.getColumnIndex(Constants.NAME));
+            @SuppressLint("Range") String data2 = cursor.getString(cursor.getColumnIndex(Constants.DATE));
+            @SuppressLint("Range") String data3 = cursor.getString(cursor.getColumnIndex(Constants.DATE_TIME));
+            tempList.add(data);
+            tempList.add(data2);
+            tempList.add(data3);
+
         }
         cursor.close();
         return tempList;
